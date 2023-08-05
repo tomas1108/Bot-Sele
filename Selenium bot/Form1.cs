@@ -43,7 +43,7 @@ namespace Selenium_bot
         DataTable dt = new DataTable();
         OleDbDataAdapter sda = new OleDbDataAdapter();
 
-        string conString = @"Provider=Microsoft.Jet.OLEDB.4.0;" + @"Data source= D:\dbSe.mdb";
+        string conString = @"Provider=Microsoft.Jet.OLEDB.4.0;" + @"Data source=D:\Selenium bot\Selenium bot\Database\dbSe.mdb";
         private string date;
         private string mont_date;
         private string month;
@@ -416,7 +416,7 @@ namespace Selenium_bot
             string[] filesPath = Directory.GetFiles(path);
             try
             {
-                OleDbConnection connection = new OleDbConnection(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = D:\dbSe.mdb; Persist Security Info = False; ");
+                OleDbConnection connection = new OleDbConnection(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = D:\Selenium bot\Selenium bot\Database\dbSe.mdb; Persist Security Info = False; ");
                 OleDbCommand command = new OleDbCommand("", connection);
 
                 DataGridViewRow dgRow = dbSele.CurrentRow;
