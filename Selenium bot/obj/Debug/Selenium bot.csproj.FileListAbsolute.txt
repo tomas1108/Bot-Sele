@@ -1,0 +1,41 @@
+D:\Selenium bot\Selenium bot\obj\Debug\Selenium bot.csproj.AssemblyReference.cache
+D:\Selenium bot\Selenium bot\obj\Debug\Selenium bot.csproj.SuggestedBindingRedirects.cache
+D:\Selenium bot\Selenium bot\obj\Debug\Interop.AutoItX3Lib.dll
+D:\Selenium bot\Selenium bot\obj\Debug\Selenium bot.csproj.ResolveComReference.cache
+D:\Selenium bot\Selenium bot\obj\Debug\Selenium_bot.Form1.resources
+D:\Selenium bot\Selenium bot\obj\Debug\Selenium_bot.Properties.Resources.resources
+D:\Selenium bot\Selenium bot\obj\Debug\Selenium bot.csproj.GenerateResource.cache
+D:\Selenium bot\Selenium bot\obj\Debug\Selenium bot.csproj.CoreCompileInputs.cache
+D:\Selenium bot\Selenium bot\bin\Debug\Selenium bot.exe.config
+D:\Selenium bot\Selenium bot\bin\Debug\Selenium bot.exe
+D:\Selenium bot\Selenium bot\bin\Debug\Selenium bot.pdb
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.BonusSkins.v23.1.dll
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.Data.Desktop.v23.1.dll
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.Data.v23.1.dll
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.Drawing.v23.1.dll
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.Printing.v23.1.Core.dll
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.Sparkline.v23.1.Core.dll
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.Utils.v23.1.dll
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.XtraEditors.v23.1.dll
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.Pdf.v23.1.Core.dll
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.Pdf.v23.1.Drawing.dll
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.Data.Desktop.v23.1.xml
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.Data.v23.1.xml
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.Utils.v23.1.xml
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.Sparkline.v23.1.Core.xml
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.XtraEditors.v23.1.xml
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.Printing.v23.1.Core.xml
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.Drawing.v23.1.xml
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.Pdf.v23.1.Core.xml
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.Pdf.v23.1.Drawing.xml
+D:\Selenium bot\Selenium bot\obj\Debug\Selenium bot.csproj.CopyComplete
+D:\Selenium bot\Selenium bot\obj\Debug\Selenium bot.exe
+D:\Selenium bot\Selenium bot\obj\Debug\Selenium bot.pdb
+D:\Selenium bot\Selenium bot\bin\Debug\selenium-manager\linux\selenium-manager
+D:\Selenium bot\Selenium bot\bin\Debug\selenium-manager\macos\selenium-manager
+D:\Selenium bot\Selenium bot\bin\Debug\selenium-manager\windows\selenium-manager.exe
+D:\Selenium bot\Selenium bot\bin\Debug\WebDriver.dll
+D:\Selenium bot\Selenium bot\obj\Debug\Selenium_bot.Form2.resources
+D:\Selenium bot\Selenium bot\bin\Debug\Newtonsoft.Json.dll
+D:\Selenium bot\Selenium bot\bin\Debug\Newtonsoft.Json.xml
+D:\Selenium bot\Selenium bot\bin\Debug\WebDriver.Support.dll
