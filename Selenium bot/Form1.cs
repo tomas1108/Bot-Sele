@@ -57,7 +57,7 @@ namespace Selenium_bot
         string _value = "";
         string path = "D:\\FRE\\Cai_FRE\\Report\\FK";
 
-
+       
 
         public Form1()
         {
@@ -68,7 +68,7 @@ namespace Selenium_bot
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            pnLogIn.Visible = true;
             fill_combo();
             ConnectToAccess();
 
@@ -165,7 +165,7 @@ namespace Selenium_bot
         }
         private void btnRun_Click(object sender, EventArgs e)
         {
-            /*    selectorUpLoadFile();*/
+            /*  selectorUpLoadFile();*/
             selectorCreateFile();
 
 
@@ -245,12 +245,11 @@ namespace Selenium_bot
                
 
                 SetValue("#root > div > div > div > div > div > form > div > div:nth-child(4) > button", "");
-                FindSelectTor(chromeDriver, _selector, _value, 1000);
-
-                chromeDriver.FindElement(By.XPath(" /html/body/div[3]/div/div[2]/div/div[2]/button")).Click();
-                Thread.Sleep(2000);
+                FindSelectTor(chromeDriver, _selector, _value, 2000);
 
 
+                SetValue("/html/body/div[3]/div/div[2]/div/div[2]/button", "");
+                FindXpath(chromeDriver, _selector, _value, 1000);
 
                 /* chromeDriver.FindElement(By.XPath("//*[@id=\"root\"]/div[2]/div[1]/span")).Click();
                                 Thread.Sleep(1000);*/
@@ -300,7 +299,8 @@ namespace Selenium_bot
                     string yearFile = fileCut[2];
 
                     /*  lấy giá trị tháng trên website*/
-                    string webMonth = chromeDriver.FindElement(By.CssSelector("body > div:nth-child(15) > div > div > div > div > div > div.ant-picker-header > div > button.ant-picker-month-btn")).Text;
+                    string webMonth = chromeDriver.FindElement(By.ClassName("ant-picker-month-btn")).Text;
+
                     string[] webCut = webMonth.Split(kitu);
                     string monthWeb = webCut[1];
 
@@ -315,12 +315,13 @@ namespace Selenium_bot
                         for (int i = 0; i < step; i++)
                         {
 
-                            chromeDriver.FindElement(By.CssSelector("body > div:nth-child(15) > div > div > div > div > div > div.ant-picker-header > button.ant-picker-header-prev-btn")).Click();
+                            chromeDriver.FindElement(By.ClassName("ant-picker-header-prev-btn")).Click();
                             Thread.Sleep(2000);
                         }
 
-                        IWebElement el = chromeDriver.FindElement(By.CssSelector("body > div:nth-child(15) > div > div > div > div > div > div.ant-picker-body > table > tbody"));
-                        Thread.Sleep(5000);
+
+                        IWebElement el = chromeDriver.FindElement(By.ClassName("ant-picker-body"));
+                        Thread.Sleep(1000);
 
                         List<IWebElement> colEl = new List<IWebElement>(el.FindElements(By.TagName("td")));
 
@@ -328,25 +329,34 @@ namespace Selenium_bot
                         {
                             if (cols.Text.Equals(dayFile))
                                 cols.Click();
-                            }
+
+                        }
                         Thread.Sleep(3000);
                         /* lấy ngày từ datePicker*/
-                        string Id1 = chromeDriver.FindElement(By.XPath("/html/body/div[4]/div/div/form/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/input")).GetAttribute("title");
-                        Thread.Sleep(3000);
+                        string day = chromeDriver.FindElement(By.CssSelector("body > div.fade.modal.show > div > div > form > div.modal-body > div > div > div > div:nth-child(1) > div > div > div > div.ant-picker.form-control.ant-picker-focused > div > input")).GetAttribute("value");
+                        Thread.Sleep(1000);
+                        MessageBox.Show(day);
 
-                        /* truyền Id vào mã thực đơn*/
-                        chromeDriver.FindElement(By.XPath("/html/body/div[4]/div/div/form/div[2]/div/div/div/div[2]/div/div/input")).SendKeys(Id1);
+
+                        /* truyền Id vào mã thực đơn*//*
+                        chromeDriver.FindElement(By.CssSelector("body > div.fade.modal.show > div > div > form > div.modal-body > div > div > div > div:nth-child(2) > div > div > input")).SendKeys(Id1);*/
+
+                        SetValue("body > div.fade.modal.show > div > div > form > div.modal-body > div > div > div > div:nth-child(2) > div > div > input", day);
+                        FindSelectTor(chromeDriver, _selector, _value, 1000);
+
+
                     }
                     /* lấy ngày từ datePicker*/
-                    string Id = chromeDriver.FindElement(By.XPath("/html/body/div[4]/div/div/form/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/input")).GetAttribute("title");
+
+                    string idFilePath = chromeDriver.FindElement(By.CssSelector("body > div.fade.modal.show > div > div > form > div.modal-body > div > div > div > div:nth-child(2) > div > div > input")).GetAttribute("value");
+
 
 
 
                     /*bấm vào buton upfile*/
-
-                    IWebElement fileUp = chromeDriver.FindElement(By.XPath("/html/body/div[4]/div/div/form/div[2]/div/div/div/div[3]/div/div/div/div/div[2]/div"));
-                    Thread.Sleep(2000);
+                    IWebElement fileUp = chromeDriver.FindElement(By.CssSelector("body > div.fade.modal.show > div > div > form > div.modal-body > div > div > div > div.col-md-12 > div > div > div > div > div.input-group-btn > div"));      
                     fileUp.Click();
+
 
                     /*  kiểm tra giá trị của Type*/
                     int value = Convert.ToInt32(dgRow.Cells[7].Value == DBNull.Value ? "" : dgRow.Cells[7].Value);
@@ -358,32 +368,37 @@ namespace Selenium_bot
                         case 1:
 
                           /*  autoIT.WinActivate("File");*/
-                            DateTime d = DateTime.Parse(Id);
+                            DateTime d = DateTime.Parse(idFilePath);
                             string pathFile = "D:\\FRE\\Cai_FRE\\Report\\FK\\" + d.ToString("d.M.yyy") + "-sang" + ".csv";
+                         
 
-                            SetValue("//*[@id=\"csvFileInput\"]", pathFile);
+                            chromeDriver.FindElement(By.Id("csvFileInput")).SendKeys("D:\\FRE\\Cai_FRE\\Report\\FK\\1.6.2023-sang.csv");
+                            Thread.Sleep(2000);
+
+
+                            SetValue("/html/body/div[6]/div/div[6]/button[1]", "");
                             FindXpath(chromeDriver, _selector, _value, 2000);
 
 
-                           /* Thread.Sleep(1000);
-                           *//* autoIT.Send("{ENTER}");*//*
-                            Thread.Sleep(1000);*/
+                            SetValue("/html/body/div[4]/div/div/form/div[3]/button[1]", "");
+                            FindXpath(chromeDriver, _selector, _value, 2000);
 
-                            chromeDriver.FindElement(By.XPath("/ html / body / div[4] / div / div / form / div[3] / button[1]")).Click();
-                            Thread.Sleep(1000);
-                            chromeDriver.FindElement(By.XPath("/ html/body/div[6]/div/div[6]/button[1]")).Click();
+
+                            SetValue("/html/body/div[6]/div/div[6]/button[1]", "");
+                            FindXpath(chromeDriver, _selector, _value, 2000);
+
+
+         
                             chromeDriver.Navigate();
-                            Thread.Sleep(2000);
-
                             chromeDriver.Navigate().Refresh();
-                            Thread.Sleep(3000);
+                            Thread.Sleep(2000);
                             break;
 
 
                         /*  nếu type = 2 thì import file chieu*/
                         case 2:
                             autoIT.WinActivate("File");
-                            DateTime d1 = DateTime.Parse(Id);
+                            DateTime d1 = DateTime.Parse(idFilePath);
                             autoIT.Send("D:\\FRE\\Cai_FRE\\Report\\FK\\" + d1.ToString("dd.MM.yyy") + "-chieu " + ".csv");
                             Thread.Sleep(1000);
                             autoIT.Send("{ENTER}");
@@ -412,7 +427,7 @@ namespace Selenium_bot
 
         void selectorCreateFile()
         {
-            ChromeDriver chromeDriver = new ChromeDriver();
+            IWebDriver chromeDriver = new ChromeDriver(@"D:\Selenium bot\Selenium bot\Driver\chromedriver.exe");
             string[] filesPath = Directory.GetFiles(path);
             try
             {
@@ -422,7 +437,7 @@ namespace Selenium_bot
                 DataGridViewRow dgRow = dbSele.CurrentRow;
 
 
-                chromeDriver.Url = (String)(dgRow.Cells[4].Value == DBNull.Value ? "" : dgRow.Cells[4].Value);
+                chromeDriver.Url = "https://v2.sc.edu.vn/login";
                 chromeDriver.Manage().Window.Maximize();
                 chromeDriver.FindElement(By.CssSelector("#root > div > div > div > div > div > form > div > div:nth-child(2) > div:nth-child(1) > div > input")).SendKeys((String)(dgRow.Cells[1].Value == DBNull.Value ? "" : dgRow.Cells[2].Value));
 
@@ -582,10 +597,12 @@ namespace Selenium_bot
                         if (objcSVThucDon.ChiTietThucDons.Count > 0)
                             foreach (CSVCTThucDon objCSVCTThucDon in objcSVThucDon.ChiTietThucDons)
                             {
+
+                       
                                 string tt = objCSVCTThucDon.Tentat;
                                 /*truyền tên tắt*/
-                                chromeDriver.FindElement(By.CssSelector("#rc_select_0")).SendKeys("Muoi");
-                                Thread.Sleep(3000);
+                                chromeDriver.FindElement(By.CssSelector("#rc_select_0")).SendKeys(tt);
+                            
                                 chromeDriver.FindElement(By.XPath("/html/body/div[4]/div/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[1]")).Click() ;
                             /*    col - md - 2
                                 string te = chromeDriver.FindElement(By.ClassName("rc-virtual-list-holder")).Text;
@@ -596,63 +613,67 @@ namespace Selenium_bot
 
                                 /*truyền SL(G) */
                                 string sLGram = objCSVCTThucDon.Soluonggam.ToString();
-                                MessageBox.Show(sLGram);
-                                chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[1]/div/div/div/table/tbody/tr/td[3]")).Click();
-                                Thread.Sleep(1000);
-                                chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[5]/textarea")).SendKeys(sLGram);
-                                Thread.Sleep(1000);
 
 
-                                /*truyền DVT */
-                                string dvT = objCSVCTThucDon.Donvitinh;
-                                MessageBox.Show(dvT);
-                                chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[1]/div/div/div/table/tbody/tr/td[4]")).Click();
-                                Thread.Sleep(1000);
-                                chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[5]/textarea")).SendKeys(dvT);
-                                Thread.Sleep(1000);
-
-                                /*truyền SL(DVT) */
-                                string sLDVT = objCSVCTThucDon.Soluongkg.ToString();
-                                MessageBox.Show(sLDVT);
-                                chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[1]/div/div/div/table/tbody/tr/td[5]")).Click();
-                                Thread.Sleep(1000);
-                                chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[5]/textarea")).SendKeys(sLDVT);
-                                Thread.Sleep(1000);
-
-                                /*truyền thai bo */
-                                string thBo = objCSVCTThucDon.Hesothaibo.ToString();
-                                MessageBox.Show(thBo);
-                                chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[1]/div/div/div/table/tbody/tr/td[6]")).Click();
-                                Thread.Sleep(1000);
-                                chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[5]/textarea")).SendKeys(thBo);
-                                Thread.Sleep(1000);
-
-                                /*truyền thuc mua */
-                                string thucMua = objCSVCTThucDon.Soluongthucmua.ToString();
-                                MessageBox.Show(thucMua);
-                                chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[1]/div/div/div/table/tbody/tr/td[7]")).Click();
-                                Thread.Sleep(1000);
-                                chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[5]/textarea")).SendKeys(thucMua);
-                                Thread.Sleep(1000);
-
-                                /*truyền gia tien */
-                                string giaTien = objCSVCTThucDon.Giatien.ToString();
-                                MessageBox.Show(giaTien);
-                                chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[1]/div/div/div/table/tbody/tr/td[8]")).Click();
-                                Thread.Sleep(1000);
-                                chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[5]/textarea")).SendKeys(giaTien);
-                                Thread.Sleep(1000);
-
-                                chromeDriver.FindElement(By.XPath(" //*[@id=\"root\"]/div[3]/div/div[2]/div[2]/div[3]/div/div/div[1]/div[1]/div/div/div/div/div/div[4]/span[1]/button")).Click();
-                                Thread.Sleep(2000);
+                                for (int i = 0; i < objCSVCTThucDon.Tentat.Length; i++)
+                                {
+                                    chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[1]/div/div/div/table/tbody/tr[" + i + "]/td[3]")).Click();
+                                    Thread.Sleep(1000);
+                                    chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[5]/textarea")).SendKeys(sLGram);
+                                    Thread.Sleep(1000);
 
 
 
+                                    /*truyền DVT */
+                                    string dvT = objCSVCTThucDon.Donvitinh;
+
+                                    chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[1]/div/div/div/table/tbody/tr[" + i + "]/td[4]")).Click();
+                                    Thread.Sleep(1000);
+                                    chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[5]/textarea")).SendKeys(dvT);
+                                    Thread.Sleep(1000);
+
+                                    /*truyền SL(DVT) */
+                                    string sLDVT = objCSVCTThucDon.Soluongkg.ToString();
+
+                                    chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[1]/div/div/div/table/tbody/tr[" + i + "]/td[5]")).Click();
+                                    Thread.Sleep(1000);
+                                    chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[5]/textarea")).SendKeys(sLDVT);
+                                    Thread.Sleep(1000);
+
+                                    /*truyền thai bo */
+                                    string thBo = objCSVCTThucDon.Hesothaibo.ToString();
+
+                                    chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[1]/div/div/div/table/tbody/tr[" + i + "]/td[6]")).Click();
+                                    Thread.Sleep(1000);
+                                    chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[5]/textarea")).SendKeys(thBo);
+                                    Thread.Sleep(1000);
+
+                                    /*truyền thuc mua */
+                                    string thucMua = objCSVCTThucDon.Soluongthucmua.ToString();
+
+                                    chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[1]/div/div/div/table/tbody/tr[" + i + "]/td[7]")).Click();
+                                    Thread.Sleep(1000);
+                                    chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[5]/textarea")).SendKeys(thucMua);
+                                    Thread.Sleep(1000);
+
+                                    /*truyền gia tien */
+                                    string giaTien = objCSVCTThucDon.Giatien.ToString();
+
+                                    chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[1]/div/div/div/table/tbody/tr[" + i + "]/td[8]")).Click();
+                                    Thread.Sleep(1000);
+                                    chromeDriver.FindElement(By.XPath("//*[@id=\"hot\"]/div[5]/textarea")).SendKeys(giaTien);
+                                    Thread.Sleep(1000);
+
+                                    chromeDriver.FindElement(By.XPath(" //*[@id=\"root\"]/div[3]/div/div[2]/div[2]/div[3]/div/div/div[1]/div[1]/div/div/div/div/div/div[4]/span[1]/button")).Click();
+                                    Thread.Sleep(2000);
 
 
 
 
 
+
+
+                                }
 
 
 
@@ -765,6 +786,8 @@ namespace Selenium_bot
                 chd.FindElement(By.XPath(xpath)).Click();
             Thread.Sleep(milisecond);
         }
+
+        
     }
 
 
