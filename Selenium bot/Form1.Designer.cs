@@ -31,169 +31,191 @@
             this.dbSele = new System.Windows.Forms.DataGridView();
             this.btnRun = new System.Windows.Forms.Button();
             this.comboSele = new System.Windows.Forms.ComboBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnUploadFile = new System.Windows.Forms.Button();
             this.btnCreateFile = new System.Windows.Forms.Button();
-            this.pnLogIn = new DevExpress.XtraEditors.PanelControl();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btnAddStep = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.txtUser = new System.Windows.Forms.TextBox();
+            this.btnUpload = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dbSele)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnLogIn)).BeginInit();
-            this.pnLogIn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dbSele
             // 
             this.dbSele.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dbSele.Location = new System.Drawing.Point(12, 50);
+            this.dbSele.Location = new System.Drawing.Point(12, 59);
             this.dbSele.Name = "dbSele";
             this.dbSele.RowHeadersWidth = 51;
             this.dbSele.RowTemplate.Height = 24;
-            this.dbSele.Size = new System.Drawing.Size(849, 419);
+            this.dbSele.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dbSele.Size = new System.Drawing.Size(550, 167);
             this.dbSele.TabIndex = 0;
             // 
             // btnRun
             // 
-            this.btnRun.Location = new System.Drawing.Point(964, 126);
+            this.btnRun.Location = new System.Drawing.Point(492, 8);
+            this.btnRun.Margin = new System.Windows.Forms.Padding(5);
             this.btnRun.Name = "btnRun";
-            this.btnRun.Size = new System.Drawing.Size(95, 32);
+            this.btnRun.Size = new System.Drawing.Size(174, 55);
             this.btnRun.TabIndex = 1;
-            this.btnRun.Text = "Run";
+            this.btnRun.Text = "UpLoad";
             this.btnRun.UseVisualStyleBackColor = true;
             this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
             // 
             // comboSele
             // 
             this.comboSele.FormattingEnabled = true;
-            this.comboSele.Location = new System.Drawing.Point(12, 13);
+            this.comboSele.Location = new System.Drawing.Point(12, 29);
             this.comboSele.Name = "comboSele";
-            this.comboSele.Size = new System.Drawing.Size(849, 24);
+            this.comboSele.Size = new System.Drawing.Size(514, 24);
             this.comboSele.TabIndex = 2;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(323, 475);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(87, 32);
-            this.btnAdd.TabIndex = 5;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(219, 475);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(87, 32);
-            this.btnDelete.TabIndex = 7;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(113, 475);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(87, 32);
-            this.btnEdit.TabIndex = 8;
-            this.btnEdit.Text = "Sửa";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(12, 475);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(87, 32);
-            this.btnSave.TabIndex = 9;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(168, 194);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(176, 23);
-            this.textBox1.TabIndex = 10;
-            // 
-            // btnUploadFile
-            // 
-            this.btnUploadFile.Location = new System.Drawing.Point(885, 434);
-            this.btnUploadFile.Name = "btnUploadFile";
-            this.btnUploadFile.Size = new System.Drawing.Size(174, 35);
-            this.btnUploadFile.TabIndex = 11;
-            this.btnUploadFile.Text = "UpFile";
-            this.btnUploadFile.UseVisualStyleBackColor = true;
             // 
             // btnCreateFile
             // 
-            this.btnCreateFile.Location = new System.Drawing.Point(1065, 434);
+            this.btnCreateFile.Location = new System.Drawing.Point(310, 8);
+            this.btnCreateFile.Margin = new System.Windows.Forms.Padding(5);
             this.btnCreateFile.Name = "btnCreateFile";
-            this.btnCreateFile.Size = new System.Drawing.Size(174, 35);
+            this.btnCreateFile.Size = new System.Drawing.Size(174, 55);
             this.btnCreateFile.TabIndex = 12;
             this.btnCreateFile.Text = "CreateFile";
             this.btnCreateFile.UseVisualStyleBackColor = true;
             // 
-            // pnLogIn
+            // btnAddStep
             // 
-            this.pnLogIn.Controls.Add(this.textBox2);
-            this.pnLogIn.Controls.Add(this.textBox1);
-            this.pnLogIn.Location = new System.Drawing.Point(885, 194);
-            this.pnLogIn.Name = "pnLogIn";
-            this.pnLogIn.Size = new System.Drawing.Size(354, 234);
-            this.pnLogIn.TabIndex = 13;
+            this.btnAddStep.Location = new System.Drawing.Point(532, 28);
+            this.btnAddStep.Name = "btnAddStep";
+            this.btnAddStep.Size = new System.Drawing.Size(30, 24);
+            this.btnAddStep.TabIndex = 13;
+            this.btnAddStep.Text = "........";
+            this.btnAddStep.UseVisualStyleBackColor = true;
+            this.btnAddStep.Click += new System.EventHandler(this.btnAddStep_Click);
             // 
-            // textBox2
+            // button1
             // 
-            this.textBox2.Location = new System.Drawing.Point(168, 136);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(176, 23);
-            this.textBox2.TabIndex = 11;
+            this.button1.Location = new System.Drawing.Point(675, 8);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(174, 55);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Test";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // button2
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(918, 50);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(88, 20);
-            this.checkBox1.TabIndex = 14;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
-         
+            this.button2.Location = new System.Drawing.Point(126, 8);
+            this.button2.Margin = new System.Windows.Forms.Padding(5);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(174, 55);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Open";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(675, 94);
+            this.button3.Margin = new System.Windows.Forms.Padding(5);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(174, 55);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "Đăng xuất";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.button3);
+            this.panelControl1.Controls.Add(this.btnRun);
+            this.panelControl1.Controls.Add(this.btnCreateFile);
+            this.panelControl1.Controls.Add(this.button1);
+            this.panelControl1.Controls.Add(this.button2);
+            this.panelControl1.Location = new System.Drawing.Point(20, 365);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(6);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(856, 156);
+            this.panelControl1.TabIndex = 17;
+            // 
+            // txtUser
+            // 
+            this.txtUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtUser.Location = new System.Drawing.Point(12, 0);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.ReadOnly = true;
+            this.txtUser.ShortcutsEnabled = false;
+            this.txtUser.Size = new System.Drawing.Size(550, 23);
+            this.txtUser.TabIndex = 18;
+            this.txtUser.Text = "mamon@gmail.com";
+            this.txtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtUser.Click += new System.EventHandler(this.txtUser_Click);
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpload.Location = new System.Drawing.Point(454, 242);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(108, 41);
+            this.btnUpload.TabIndex = 19;
+            this.btnUpload.Text = "Upload";
+            this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(330, 242);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(108, 41);
+            this.button4.TabIndex = 20;
+            this.button4.Text = "Create";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(200, 242);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(108, 41);
+            this.button5.TabIndex = 21;
+            this.button5.Text = "Open";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(71, 242);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(108, 41);
+            this.button6.TabIndex = 22;
+            this.button6.Text = "Test";
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1260, 519);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.pnLogIn);
-            this.Controls.Add(this.btnCreateFile);
-            this.Controls.Add(this.btnUploadFile);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnAdd);
+            this.ClientSize = new System.Drawing.Size(574, 347);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnUpload);
+            this.Controls.Add(this.panelControl1);
+            this.Controls.Add(this.txtUser);
+            this.Controls.Add(this.btnAddStep);
             this.Controls.Add(this.comboSele);
-            this.Controls.Add(this.btnRun);
             this.Controls.Add(this.dbSele);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dbSele)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnLogIn)).EndInit();
-            this.pnLogIn.ResumeLayout(false);
-            this.pnLogIn.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,16 +226,17 @@
         private System.Windows.Forms.DataGridView dbSele;
         private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.ComboBox comboSele;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnUploadFile;
         private System.Windows.Forms.Button btnCreateFile;
-        private DevExpress.XtraEditors.PanelControl pnLogIn;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btnAddStep;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private System.Windows.Forms.TextBox txtUser;
+        private System.Windows.Forms.Button btnUpload;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }
 

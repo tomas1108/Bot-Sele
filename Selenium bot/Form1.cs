@@ -43,7 +43,7 @@ namespace Selenium_bot
         DataTable dt = new DataTable();
         OleDbDataAdapter sda = new OleDbDataAdapter();
 
-        string conString = @"Provider=Microsoft.Jet.OLEDB.4.0;" + @"Data source=D:\Selenium bot\Selenium bot\Database\dbSe.mdb";
+        string conString = @"Provider=Microsoft.Jet.OLEDB.4.0;" + @"Data source=D:\dbSe.mdb";
         private string date;
         private string mont_date;
         private string month;
@@ -57,7 +57,8 @@ namespace Selenium_bot
         string _value = "";
         string path = "D:\\FRE\\Cai_FRE\\Report\\FK";
 
-       
+
+
 
         public Form1()
         {
@@ -68,105 +69,26 @@ namespace Selenium_bot
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            pnLogIn.Visible = true;
-            fill_combo();
+
+            /*   fill_combo();*/
             ConnectToAccess();
-
-
-
-        }
-
-
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                OleDbConnection connection = new OleDbConnection(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = D:\dbSe.mdb; Persist Security Info = False; ");
-                OleDbCommand command = new OleDbCommand("", connection);
-                DataGridViewRow dgRow = dbSele.CurrentRow;
-                command.Parameters.AddWithValue("Name", dgRow.Cells[1].Value == DBNull.Value ? "" : dgRow.Cells[1].Value);
-                command.Parameters.AddWithValue("userName", dgRow.Cells[2].Value == DBNull.Value ? "" : dgRow.Cells[2].Value);
-                command.Parameters.AddWithValue("Value", dgRow.Cells[3].Value == DBNull.Value ? "" : dgRow.Cells[3].Value);
-                command.Parameters.AddWithValue("Link", dgRow.Cells[4].Value == DBNull.Value ? "" : dgRow.Cells[4].Value);
-                command.Parameters.AddWithValue("Status", dgRow.Cells[5].Value == DBNull.Value ? "" : dgRow.Cells[5].Value);
-                command.Parameters.AddWithValue("Selector", dgRow.Cells[6].Value == DBNull.Value ? "" : dgRow.Cells[6].Value);
-                command.Parameters.AddWithValue("Type", dgRow.Cells[7].Value == DBNull.Value ? "" : dgRow.Cells[7].Value);
-                command.CommandText = "INSERT INTO tbSelen(Name,UserName,Valu,Link,Status,Selec,Type) values ([Name],[userName],[Value],[Link],[Status],[Selector],[Type]);";
-                connection.Open();
-                command.ExecuteNonQuery();
-                MessageBox.Show("Thêm thành công");
-                showData();
-                connection.Close();
-                //edit - this needs to run or you will have duplicate values inserted
-                command.Parameters.Clear();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error   " + ex.Message);
-            }
-        }
-        private void btnDelete_Click(object sender, EventArgs e)
-
-        {
-
-            if (dbSele.CurrentRow.Cells[0].Value != DBNull.Value)
-            {
-                if (MessageBox.Show("Có muốn xóa ?", "DataGridView", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    using (OleDbConnection oldCon = new OleDbConnection(conString))
-                    {
-                        DataGridViewRow dgRow = dbSele.CurrentRow;
-                        OleDbCommand command = new OleDbCommand("", oldCon);
-                        command.Parameters.AddWithValue("STT1", dgRow.Cells[0].Value == DBNull.Value ? "" : dgRow.Cells[0].Value);
-                        command.CommandText = "DELETE *FROM tbSelen where STT= [STT1] ;";
-                        oldCon.Open();
-                        command.ExecuteNonQuery();
-                        MessageBox.Show("Xóa thành công");
-                    }
-                }
-
-            }
-            else
-                MessageBox.Show("Lỗi");
-        }
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                OleDbConnection connection = new OleDbConnection(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = D:\dbSe.mdb; Persist Security Info = False; ");
-                OleDbCommand command = new OleDbCommand("", connection);
-                DataGridViewRow dgRow = dbSele.CurrentRow;
-                command.Parameters.AddWithValue("Name", dgRow.Cells[1].Value == DBNull.Value ? "" : dgRow.Cells[1].Value);
-                command.Parameters.AddWithValue("userName", dgRow.Cells[2].Value == DBNull.Value ? "" : dgRow.Cells[2].Value);
-                command.Parameters.AddWithValue("Value", dgRow.Cells[3].Value == DBNull.Value ? "" : dgRow.Cells[3].Value);
-                command.Parameters.AddWithValue("Link", dgRow.Cells[4].Value == DBNull.Value ? "" : dgRow.Cells[4].Value);
-                command.Parameters.AddWithValue("Status", dgRow.Cells[5].Value == DBNull.Value ? "" : dgRow.Cells[5].Value);
-                command.Parameters.AddWithValue("Selector", dgRow.Cells[6].Value == DBNull.Value ? "" : dgRow.Cells[6].Value);
-                command.Parameters.AddWithValue("Type", dgRow.Cells[7].Value == DBNull.Value ? "" : dgRow.Cells[7].Value);
-
-                command.CommandText = "UPDATE tbSelen SET tbSelen.Name = @Name,tbSelen.UserName = @userName, tbSelen.Valu = @Value,tbSelen.Link = @Link,tbSelen.Status = @Status,tbSelen.Selec = @Selec,tbSelen.Type = @Type ;";
-                connection.Open();
-                command.ExecuteNonQuery();
-                MessageBox.Show("Sửa thành công");
-                showData();
-                connection.Close();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error   " + ex.Message);
-            }
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
             showData();
+
+
+
         }
+
+
+
+
+
+
+
+
         private void btnRun_Click(object sender, EventArgs e)
         {
-            /*  selectorUpLoadFile();*/
-            selectorCreateFile();
+            selectorUpLoadFile();
+            /*           selectorCreateFile();*/
 
 
         }
@@ -178,7 +100,7 @@ namespace Selenium_bot
                 (OleDbConnection oldCon = new OleDbConnection(conString))
             {
                 oldCon.Open();
-                showData();
+
             }
         }
 
@@ -195,34 +117,34 @@ namespace Selenium_bot
             }
         }
 
-        void fill_combo()
-        {
+        /* void fill_combo()
+         {
 
-            using
-                  (OleDbConnection oldCon = new OleDbConnection(conString))
-            {
-                oldCon.Open();
-                OleDbCommand cmd = new OleDbCommand("SELECT *FROM tbSeLen", oldCon);
-                OleDbDataAdapter da = new OleDbDataAdapter();
-                da.SelectCommand = cmd;
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                comboSele.DataSource = dt;
-                comboSele.DisplayMember = "tbSelen";
-                comboSele.ValueMember = "Name" + "";
-
-
+             using
+                   (OleDbConnection oldCon = new OleDbConnection(conString))
+             {
+                 oldCon.Open();
+                 OleDbCommand cmd = new OleDbCommand("SELECT *FROM tbSeLen", oldCon);
+                 OleDbDataAdapter da = new OleDbDataAdapter();
+                 da.SelectCommand = cmd;
+                 DataTable dt = new DataTable();
+                 da.Fill(dt);
+                 comboSele.DataSource = dt;
+                 comboSele.DisplayMember = "tbSelen";
+                 comboSele.ValueMember = "Name" + "";
 
 
-            }
 
-        }
+
+             }
+
+         }*/
 
 
         void selectorUpLoadFile()
         {
             ///navtigate to 1 url website
-            ChromeDriver chromeDriver = new ChromeDriver();
+            IWebDriver chromeDriver = new ChromeDriver(@"D:\Selenium bot\Selenium bot\Driver\chromedriver.exe");
 
             string[] filesPath = Directory.GetFiles(path);
             try
@@ -233,16 +155,18 @@ namespace Selenium_bot
                 DataGridViewRow dgRow = dbSele.CurrentRow;
 
 
-                chromeDriver.Url = (String)(dgRow.Cells[4].Value == DBNull.Value ? "" : dgRow.Cells[4].Value);
+                chromeDriver.Url = "https://v2.sc.edu.vn/login";
                 chromeDriver.Manage().Window.Maximize();
 
-                SetValue("#root > div > div > div > div > div > form > div > div:nth-child(2) > div:nth-child(1) > div > input", (String)(dgRow.Cells[2].Value == DBNull.Value ? "" : dgRow.Cells[2].Value));
+                SetValue("#root > div > div > div > div > div > form > div > div:nth-child(2) > div:nth-child(1) > div > input", (String)(dgRow.Cells[1].Value == DBNull.Value ? "" : dgRow.Cells[1].Value));
                 FindSelectTor(chromeDriver, _selector, _value, 1000);
 
-                SetValue("#root > div > div > div > div > div > form > div > div:nth-child(3) > div:nth-child(1) > div > input", (String)(dgRow.Cells[3].Value == DBNull.Value ? "" : dgRow.Cells[3].Value));
+
+                SetValue("#root > div > div > div > div > div > form > div > div:nth-child(3) > div:nth-child(1) > div > input", (String)(dgRow.Cells[2].Value == DBNull.Value ? "" : dgRow.Cells[2].Value));
+
                 FindSelectTor(chromeDriver, _selector, _value, 1000);
 
-               
+
 
                 SetValue("#root > div > div > div > div > div > form > div > div:nth-child(4) > button", "");
                 FindSelectTor(chromeDriver, _selector, _value, 2000);
@@ -274,7 +198,7 @@ namespace Selenium_bot
                 {
 
                     chromeDriver.FindElement(By.XPath("//*[@id=\"root\"]/div[3]/div/div[2]/div[2]/div[1]/div/div/div/div/div[5]/div/div/div/div/div[5]/span[1]/button")).Click();
-                    Thread.Sleep(3000);
+                    Thread.Sleep(2000);
                     /* kiểm tra ngày và tháng*/
 
                     chromeDriver.FindElement(By.XPath("/ html / body / div[5] / div / div / form / div[2] / div / div[1] / div / div")).Click();
@@ -354,41 +278,34 @@ namespace Selenium_bot
 
 
                     /*bấm vào buton upfile*/
-                    IWebElement fileUp = chromeDriver.FindElement(By.CssSelector("body > div.fade.modal.show > div > div > form > div.modal-body > div > div > div > div.col-md-12 > div > div > div > div > div.input-group-btn > div"));      
-                    fileUp.Click();
+                    /*     IWebElement fileUp = chromeDriver.FindElement(By.CssSelector("body > div.fade.modal.show > div > div > form > div.modal-body > div > div > div > div.col-md-12 > div > div > div > div > div.input-group-btn > div"));
+                         Thread.Sleep(2000);
+                         fileUp.Click();*/
 
 
                     /*  kiểm tra giá trị của Type*/
-                    int value = Convert.ToInt32(dgRow.Cells[7].Value == DBNull.Value ? "" : dgRow.Cells[7].Value);
-
+                    int value = Convert.ToInt32(dgRow.Cells[4].Value == DBNull.Value ? "" : dgRow.Cells[4].Value);
+                    string path = (String)(dgRow.Cells[7].Value == DBNull.Value ? "" : dgRow.Cells[4].Value);
+                    DateTime d = DateTime.Parse(idFilePath);
                     switch (value)
                     {
 
 
                         case 1:
 
-                          /*  autoIT.WinActivate("File");*/
-                            DateTime d = DateTime.Parse(idFilePath);
-                            string pathFile = "D:\\FRE\\Cai_FRE\\Report\\FK\\" + d.ToString("d.M.yyy") + "-sang" + ".csv";
-                         
 
-                            chromeDriver.FindElement(By.Id("csvFileInput")).SendKeys("D:\\FRE\\Cai_FRE\\Report\\FK\\1.6.2023-sang.csv");
-                            Thread.Sleep(2000);
+                            string pathFile = path + d.ToString("d.M.yyy") + "-sang" + ".csv";
 
-
-                            SetValue("/html/body/div[6]/div/div[6]/button[1]", "");
+                            SetValue("//*[@id=\"csvFileInput\"]", pathFile);
                             FindXpath(chromeDriver, _selector, _value, 2000);
 
 
-                            SetValue("/html/body/div[4]/div/div/form/div[3]/button[1]", "");
+                            SetValue("/html/body/div[5]/div/div/form/div[3]/button[1]", "");
                             FindXpath(chromeDriver, _selector, _value, 2000);
 
-
-                            SetValue("/html/body/div[6]/div/div[6]/button[1]", "");
+                            SetValue("/html/body/div[7]/div/div[6]/button[1]", "");
                             FindXpath(chromeDriver, _selector, _value, 2000);
 
-
-         
                             chromeDriver.Navigate();
                             chromeDriver.Navigate().Refresh();
                             Thread.Sleep(2000);
@@ -397,18 +314,22 @@ namespace Selenium_bot
 
                         /*  nếu type = 2 thì import file chieu*/
                         case 2:
-                            autoIT.WinActivate("File");
-                            DateTime d1 = DateTime.Parse(idFilePath);
-                            autoIT.Send("D:\\FRE\\Cai_FRE\\Report\\FK\\" + d1.ToString("dd.MM.yyy") + "-chieu " + ".csv");
-                            Thread.Sleep(1000);
-                            autoIT.Send("{ENTER}");
-                            Thread.Sleep(1000);
-                            chromeDriver.FindElement(By.XPath("/ html / body / div[4] / div / div / form / div[3] / button[1]")).Click();
-                            Thread.Sleep(1000);
-                            chromeDriver.FindElement(By.XPath("/ html/body/div[6]/div/div[6]/button[1]")).Click();
+
+                            string pathFileChieu = path + d.ToString("d.M.yyy") + "-chieu" + ".csv";
+
+                            SetValue("//*[@id=\"csvFileInput\"]", pathFileChieu);
+                            FindXpath(chromeDriver, _selector, _value, 2000);
+
+
+                            SetValue("/html/body/div[5]/div/div/form/div[3]/button[1]", "");
+                            FindXpath(chromeDriver, _selector, _value, 2000);
+
+                            SetValue("/html/body/div[7]/div/div[6]/button[1]", "");
+                            FindXpath(chromeDriver, _selector, _value, 2000);
+
                             chromeDriver.Navigate();
+                            chromeDriver.Navigate().Refresh();
                             Thread.Sleep(2000);
-                            MessageBox.Show("Trưa");
                             break;
 
                     }
@@ -439,9 +360,9 @@ namespace Selenium_bot
 
                 chromeDriver.Url = "https://v2.sc.edu.vn/login";
                 chromeDriver.Manage().Window.Maximize();
-                chromeDriver.FindElement(By.CssSelector("#root > div > div > div > div > div > form > div > div:nth-child(2) > div:nth-child(1) > div > input")).SendKeys((String)(dgRow.Cells[1].Value == DBNull.Value ? "" : dgRow.Cells[2].Value));
+                chromeDriver.FindElement(By.CssSelector("#root > div > div > div > div > div > form > div > div:nth-child(2) > div:nth-child(1) > div > input")).SendKeys((String)(dgRow.Cells[1].Value == DBNull.Value ? "" : dgRow.Cells[1].Value));
 
-                chromeDriver.FindElement(By.CssSelector("#root > div > div > div > div > div > form > div > div:nth-child(3) > div:nth-child(1) > div > input")).SendKeys((String)(dgRow.Cells[2].Value == DBNull.Value ? "" : dgRow.Cells[3].Value));
+                chromeDriver.FindElement(By.CssSelector("#root > div > div > div > div > div > form > div > div:nth-child(3) > div:nth-child(1) > div > input")).SendKeys((String)(dgRow.Cells[2].Value == DBNull.Value ? "" : dgRow.Cells[2].Value));
 
 
                 chromeDriver.FindElement(By.CssSelector("#root > div > div > div > div > div > form > div > div:nth-child(4) > button")).Click();
@@ -532,8 +453,8 @@ namespace Selenium_bot
                             Thread.Sleep(2000);
                         }
 
-                 /*       string e = chromeDriver.FindElement(By.ClassName("ant-picker-content")).Text;
-                        MessageBox.Show(e);*/
+                        /*       string e = chromeDriver.FindElement(By.ClassName("ant-picker-content")).Text;
+                               MessageBox.Show(e);*/
 
 
                         IWebElement el = chromeDriver.FindElement(By.ClassName("ant-picker-content"));
@@ -545,7 +466,7 @@ namespace Selenium_bot
                         {
                             if (cols.Text.Equals(dayFile))
                                 cols.Click();
-                              
+
                         }
                         Thread.Sleep(2000);
                         /* lấy ngày từ datePicker*/
@@ -588,7 +509,7 @@ namespace Selenium_bot
                         chromeDriver.FindElement(By.XPath("//*[@id=\"root\"]/div[3]/div/div[2]/div[2]/div[3]/div/div/div[1]/div[2]/div/div/div[1]/div/div")).Click();
                         Thread.Sleep(2000);
 
-          
+
 
 
                         chromeDriver.FindElement(By.XPath("/html/body/div[3]/div/div/div/div[2]/div[1]/div/div/div[2]/div")).Click();
@@ -598,15 +519,15 @@ namespace Selenium_bot
                             foreach (CSVCTThucDon objCSVCTThucDon in objcSVThucDon.ChiTietThucDons)
                             {
 
-                       
+
                                 string tt = objCSVCTThucDon.Tentat;
                                 /*truyền tên tắt*/
                                 chromeDriver.FindElement(By.CssSelector("#rc_select_0")).SendKeys(tt);
-                            
-                                chromeDriver.FindElement(By.XPath("/html/body/div[4]/div/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[1]")).Click() ;
-                            /*    col - md - 2
-                                string te = chromeDriver.FindElement(By.ClassName("rc-virtual-list-holder")).Text;
-                                MessageBox.Show(te);*/
+
+                                chromeDriver.FindElement(By.XPath("/html/body/div[4]/div/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[1]")).Click();
+                                /*    col - md - 2
+                                    string te = chromeDriver.FindElement(By.ClassName("rc-virtual-list-holder")).Text;
+                                    MessageBox.Show(te);*/
                                 Thread.Sleep(3000);
 
 
@@ -764,7 +685,7 @@ namespace Selenium_bot
             catch
             { }
         }
-        private void FindSelectTor(ChromeDriver chd, string selector, string value, int milisecond)
+        private void FindSelectTor(IWebDriver chd, string selector, string value, int milisecond)
         {
             if (!String.IsNullOrEmpty(value))
             {
@@ -775,7 +696,7 @@ namespace Selenium_bot
                 chd.FindElement(By.CssSelector(selector)).Click();
             Thread.Sleep(milisecond);
         }
-        private void FindXpath(ChromeDriver chd, string xpath, string value, int milisecond)
+        private void FindXpath(IWebDriver chd, string xpath, string value, int milisecond)
         {
             if (!String.IsNullOrEmpty(value))
             {
@@ -787,9 +708,38 @@ namespace Selenium_bot
             Thread.Sleep(milisecond);
         }
 
-        
-    }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
 
+        private void btnAddStep_Click(object sender, EventArgs e)
+        {
+            FormThemBuoc formThemBuoc = new FormThemBuoc();
+            formThemBuoc.Show();
+        }
+
+   
+
+        private void txtUser_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                FormLogin formLogin = new FormLogin();
+                formLogin.Show();
+            }
+            else
+            {
+                // user clicked no
+            }
+        }
+
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            selectorUpLoadFile();
+        }
+    }
 
 }
 
