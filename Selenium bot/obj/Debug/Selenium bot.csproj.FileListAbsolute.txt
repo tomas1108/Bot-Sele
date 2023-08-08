@@ -35,11 +35,9 @@ D:\Selenium bot\Selenium bot\bin\Debug\selenium-manager\linux\selenium-manager
 D:\Selenium bot\Selenium bot\bin\Debug\selenium-manager\macos\selenium-manager
 D:\Selenium bot\Selenium bot\bin\Debug\selenium-manager\windows\selenium-manager.exe
 D:\Selenium bot\Selenium bot\bin\Debug\WebDriver.dll
-D:\Selenium bot\Selenium bot\obj\Debug\Selenium_bot.Form2.resources
 D:\Selenium bot\Selenium bot\bin\Debug\Newtonsoft.Json.dll
 D:\Selenium bot\Selenium bot\bin\Debug\Newtonsoft.Json.xml
 D:\Selenium bot\Selenium bot\bin\Debug\WebDriver.Support.dll
-D:\Selenium bot\Selenium bot\obj\Debug\Selenium_bot.Form3.resources
 D:\Selenium bot\Selenium bot\bin\Debug\tessdata\configs\config.cfg
 D:\Selenium bot\Selenium bot\bin\Debug\tessdata\eng.traineddata
 D:\Selenium bot\Selenium bot\bin\Debug\tessdata\equ.traineddata
@@ -66,3 +64,8 @@ D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.XtraBars.v23.1.xml
 D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.RichEdit.v23.1.Core.xml
 D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.XtraTreeList.v23.1.xml
 D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.Office.v23.1.Core.xml
+D:\Selenium bot\Selenium bot\obj\Debug\Selenium_bot.FormLogin.resources
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.Dialogs.v23.1.Core.dll
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.XtraDialogs.v23.1.dll
+D:\Selenium bot\Selenium bot\bin\Debug\DevExpress.XtraDialogs.v23.1.xml
+D:\Selenium bot\Selenium bot\obj\Debug\Selenium_bot.FormThemBuoc.resources
